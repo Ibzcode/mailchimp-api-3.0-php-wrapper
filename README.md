@@ -9,12 +9,22 @@ Wrote this for one of my projects. Feel free to use, share and improve.
 Usage
 -----
 
-Replace values inside `< >` with actual values.
+Replace values inside `< >` with actual values. For example:
+
+```php
+$MailChimp = new MailChimp('abcd89500596');
+```
+
+You can set SSL verification to false when creating an instance of the class. You may find this useful when developing on your localhost.
+
+```php
+$MailChimp = new MailChimp('abcd89500596', false);
+```
 
 Subscribe a new member to a list.
 
 ```php
-$MailChimp = new MailChimp(<apikey>);
+$MailChimp = new MailChimp('<apikey>');
 $result = $MailChimp->call('lists/<list_id>/members/', 'POST', array(
             'email_address'     => '<email>',
             'status'            => 'subscribed',
@@ -27,7 +37,7 @@ print_r($result);
 Update subscriber's details.
 
 ```php
-$MailChimp = new MailChimp(<apikey>);
+$MailChimp = new MailChimp('<apikey>');
 $result = $MailChimp->call('lists/<list_id>/members/'.md5('<subscriber_email_address>'), 'PATCH', array('merge_fields' => array('FNAME'=>'<new first name>')));
 print_r($result);
 ```
@@ -35,13 +45,13 @@ print_r($result);
 Delete subscriber from the list.
 
 ```php
-$MailChimp = new MailChimp(<apikey>);
+$MailChimp = new MailChimp('<apikey>');
 $result = $MailChimp->call('lists/<list_id>/members/'.md5('<subscriber_email_address>'), 'DELETE');
 print_r($result);
 ```
 Retrieve a particular subscriber's details.
 ```php
-$MailChimp = new MailChimp(<apikey>);
+$MailChimp = new MailChimp('<apikey>');
 $result = $MailChimp->call('lists/<list_id>/members/'.md5('<subscriber_email_address>'), 'GET');
 print_r($result);
 ```
@@ -49,7 +59,7 @@ print_r($result);
 Retrieve list details.
 
 ```php
-$MailChimp = new MailChimp(<apikey>);
+$MailChimp = new MailChimp('<apikey>');
 $result = $MailChimp->call('lists/', 'GET');
 print_r($result);
 ```
@@ -57,7 +67,7 @@ print_r($result);
 Retrieve subscriber list using offset and count.
 
 ```php
-$MailChimp = new MailChimp(<apikey>);
+$MailChimp = new MailChimp('<apikey>');
 $result = $MailChimp->call('lists/<list_id>/members', 'GET', array(
             'offset'=>10,
 				    'count'=>10
