@@ -24,7 +24,7 @@ class MailChimp {
 		$this->apikey = $apikey;
 		list(, $datacenter) = explode('-', $apikey);
 		$this->endpoint = str_replace('<dc>', $datacenter, $this->endpoint);
-		if ($ssl == false) $this->ssl = $ssl;
+		if (!$ssl) $this->ssl = $ssl;
 	}
 
 
