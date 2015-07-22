@@ -11,7 +11,7 @@
 class MailChimp {
 	private $apikey;
 	private $endpoint = 'https://<dc>.api.mailchimp.com/3.0/';
-	private $ssl = false;
+	private $ssl = true;
 
 
 	/**
@@ -30,7 +30,7 @@ class MailChimp {
 
 	/**
 	 *
-	 * @param  string $method This may include a list id and other additional ids. See test.php file for examples.
+	 * @param  string $method This may include a list id and other additional ids. See examples.
 	 * @param  string $action Default 'GET'. Allowed HTTP verbs: 'GET', 'POST', 'PATCH' or 'DELETE'.
 	 * @param  array  $args   Array of arguments to send to the MailChimp API call.
 	 * @param  int $timeout Default 10. Max. seconds to allow cURL functions to execute.
