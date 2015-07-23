@@ -70,7 +70,18 @@ Retrieve subscriber list using offset and count.
 $MailChimp = new MailChimp('<apikey>');
 $result = $MailChimp->call('lists/<list_id>/members', 'GET', array(
             'offset'=>10,
-				    'count'=>10
+	    'count'=>10
 		      ));
 print_r($result);
+```
+
+Test error handling by sending 'X-Trigger-Error' in the headers inside the Wrapper. You can use these error codes: http://kb.mailchimp.com/api/error-docs/#Error_Docs
+
+```php
+$headers = array(
+	'Accept: application/json',
+	'Content-Type: application/json',
+	'X-Trigger-Error: APIKeyInvalid',
+	'Authorization: Basic '.$auth
+);
 ```
