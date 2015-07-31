@@ -4,6 +4,8 @@
  * 
  * Uses cURL to connect to the API with basic authorization
  * 
+ * MIT License
+ * 
  * @author BlueFractals <admin@blue-fractals.com>
  * @version 1.0
  */
